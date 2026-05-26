@@ -1,20 +1,21 @@
-name: tcc-utin-rpm-pprom
+name: tcc-utin-natality-2024
 channels:
   - conda-forge
 dependencies:
   - python>=3.10
   - jupyter
   - notebook
+  - nbconvert
   - ipython
-  - pandas
   - numpy
+  - pandas
   - pyarrow
-  - openpyxl
   - requests
+  - matplotlib
   - scikit-learn
   - statsmodels
   - xgboost
-  - matplotlib
+  - openpyxl
   - graphviz
   - pip
   - pip:

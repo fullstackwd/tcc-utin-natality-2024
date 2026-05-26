@@ -1,143 +1,117 @@
-# Estratificação retrospectiva do risco de internação em UTIN — Natality Data 2024
+# tcc-utin-natality-2024
 
-Repositório técnico do TCC **“Estratificação retrospectiva do risco de internação em UTIN em nascimentos: aplicação de Health Analytics à Natality Data 2024, com ênfase em prematuridade e proxy operacional compatível com contexto de RPM/PPROM”**, desenvolvido no Bacharelado em Ciência de Dados da UNIVESP.
+Repositório mínimo para executar os notebooks do TCC sobre estratificação retrospectiva do risco de internação em UTIN com microdados públicos da Natality Data 2024.
 
-O projeto organiza um pipeline reprodutível em Python para preparo, auditoria e análise retrospectiva de microdados públicos da **Natality Data 2024**, com foco em:
+Este pacote está focado somente nos requisitos de funcionamento dos notebooks:
 
-- internação em Unidade de Terapia Intensiva Neonatal (`AB_NICU`);
-- prematuridade;
-- construção de proxy operacional compatível com contexto de RPM/PPROM;
-- análise exploratória;
-- regressão logística;
-- Random Forest;
-- XGBoost;
-- calibração, limiares e explicabilidade;
-- comparação entre cenário completo/perinatal e cenário restritivo para controle metodológico de possível vazamento temporal.
+- `01_preparo_reprodutivel_natality_data_2024.ipynb`
+- `02_pipeline_analitico_reprodutivel_natality_data_2024.ipynb`
 
-> **Aviso metodológico:** a proxy RPM/PPROM usada no projeto é uma aproximação operacional retrospectiva. Ela não representa diagnóstico clínico individual, não mede prevalência real de RPM/PPROM e não deve ser usada como ferramenta assistencial prospectiva.
-
----
-
-## Estrutura da pasta
+## Estrutura
 
 ```text
 .
 ├── README.md
-├── LICENSE
-├── CITATION.cff
 ├── requirements.txt
 ├── environment.yml
 ├── .gitignore
-├── .gitattributes
-├── data/
-│   ├── README.md
-│   ├── raw/
-│   ├── interim/
-│   └── processed/
-├── docs/
-│   ├── TCC_final.docx
-│   └── referencias/
-│       └── UserGuide2024_Natality_Public_Use_File.pdf
 ├── notebooks/
 │   ├── 01_preparo_reprodutivel_natality_data_2024.ipynb
 │   └── 02_pipeline_analitico_reprodutivel_natality_data_2024.ipynb
 ├── scripts/
-│   ├── 01_preparo_reprodutivel_natality_data_2024.py
-│   ├── 02_pipeline_analitico_reprodutivel_natality_data_2024.py
 │   └── run_notebooks.sh
-├── results/
-│   ├── figures/
-│   ├── models/
-│   └── tables/
-├── reports/
-└── logs/
+└── data/
+    ├── README.md
+    ├── raw/
+    │   └── natality_2024/
+    │       └── .gitkeep
+    └── processed/
+        └── .gitkeep
 ```
 
----
-
-## Como reproduzir
-
-### 1. Criar o ambiente
+## Como instalar
 
 Com `venv`:
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # Linux/macOS
-# .venv\Scripts\activate   # Windows PowerShell
+source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Ou com Conda/Mamba:
+No Windows PowerShell:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+Com Conda/Mamba:
 
 ```bash
 conda env create -f environment.yml
-conda activate tcc-utin-rpm-pprom
+conda activate tcc-utin-natality-2024
 ```
 
-### 2. Preparar os dados
+## Como executar
 
-Execute o notebook 01:
+Primeiro execute o notebook 01:
 
 ```bash
 jupyter notebook notebooks/01_preparo_reprodutivel_natality_data_2024.ipynb
 ```
 
-O notebook 01 baixa/processa o arquivo público da Natality 2024, gera o Parquet intermediário e salva artefatos de auditoria. A saída principal esperada é:
+O notebook 01 prepara o arquivo:
 
 ```text
 data/processed/natality_data_2024.parquet
 ```
 
-### 3. Executar a análise
-
-Depois de gerar o Parquet, execute o notebook 02:
+Depois execute o notebook 02:
 
 ```bash
 jupyter notebook notebooks/02_pipeline_analitico_reprodutivel_natality_data_2024.ipynb
 ```
 
-Esse notebook gera tabelas, gráficos, métricas, artefatos de conferência e arquivos consolidados de resultados.
-
-### 4. Execução automatizada opcional
+Também é possível executar os dois notebooks em sequência:
 
 ```bash
 bash scripts/run_notebooks.sh
 ```
 
----
+## Dados
 
-## Notas sobre dados
+Os microdados brutos e arquivos derivados grandes não estão versionados no GitHub.
 
-Os microdados brutos e arquivos derivados grandes **não foram incluídos no repositório**. A pasta `data/` contém apenas subpastas e instruções para reprodução. Isso evita versionar arquivos pesados e mantém o repositório adequado para GitHub.
+Coloque os arquivos brutos, quando necessário, em:
 
-Antes de publicar o repositório como público, revise o arquivo `docs/TCC_final.docx`, pois ele contém identificação acadêmica dos autores conforme o documento original do TCC.
+```text
+data/raw/natality_2024/
+```
 
----
+O arquivo processado esperado pelo notebook 02 é:
 
-## Principais artefatos esperados
+```text
+data/processed/natality_data_2024.parquet
+```
 
-O pipeline pode gerar, entre outros:
+## Saídas geradas
 
-- `natality_data_2024.parquet`;
-- `base_analitica_tcc_utin_rpm_pprom.parquet`;
-- `resultados_tcc_pipeline_completo.xlsx`;
-- tabelas CSV de completude, regressões, métricas e importância de variáveis;
-- gráficos PNG das análises exploratórias, curvas ROC, Precision-Recall, calibração e importância de variáveis;
-- manifesto/checklist de reprodutibilidade;
-- relatório de ambiente de execução.
+Durante a execução, os notebooks podem criar pastas como:
 
----
+```text
+outputs/
+dados_brutos/
+dados_intermediarios/
+dados_finais/
+logs/
+```
 
-## Limites de uso
+Essas pastas são ignoradas pelo Git porque são resultados gerados localmente.
 
-Este projeto é destinado a fins acadêmicos, metodológicos e reprodutíveis. Os modelos não devem ser interpretados como dispositivo médico, ferramenta clínica, sistema de triagem real ou recomendação assistencial individual.
+## Aviso metodológico
 
-A aplicação em contexto brasileiro, como SINASC/DATASUS, exigiria adaptação de variáveis, validação externa, análise de equidade, avaliação prospectiva e discussão institucional.
-
----
-
-## Citação sugerida
-
-SANTOS, Jalvo Alef Oliveira dos; VILELA, Vanessa Soares; RIBEIRO, Julia Beatriz Valentim; SORGI, Vanessa Beatriz Mauricio; CALÇADA, David Paulo Francisco; OLIVEIRA, José Paulo da Silva; SANTOS, Lucas Gabriel Gallo dos; LIMA, Wagner Santos. **Estratificação retrospectiva do risco de internação em UTIN em nascimentos: aplicação de Health Analytics à Natality Data 2024, com ênfase em prematuridade e proxy operacional compatível com contexto de RPM/PPROM**. Trabalho de Conclusão de Curso, Bacharelado em Ciência de Dados, UNIVESP, 2026.
+A proxy RPM/PPROM usada no projeto é uma aproximação operacional retrospectiva. Ela não representa diagnóstico clínico individual, não mede prevalência real de RPM/PPROM e não deve ser usada como ferramenta assistencial prospectiva.

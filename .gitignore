@@ -1,9 +1,8 @@
 # Python
 __pycache__/
 *.py[cod]
-*.egg-info/
-.pytest_cache/
 .ipynb_checkpoints/
+.pytest_cache/
 
 # Ambientes
 .venv/
@@ -15,37 +14,35 @@ env/
 .DS_Store
 Thumbs.db
 
-# Dados brutos e processados grandes
+# Dados grandes
 data/raw/*
-data/interim/*
 data/processed/*
-!data/raw/.gitkeep
-!data/interim/.gitkeep
+!data/raw/
+!data/raw/natality_2024/
+!data/raw/natality_2024/.gitkeep
+!data/processed/
 !data/processed/.gitkeep
 !data/README.md
 
-# Saídas de execução
-results/tables/*
-results/figures/*
-results/models/*
-reports/*.html
-reports/*.pdf
-logs/*
-!results/README.md
-!results/tables/.gitkeep
-!results/figures/.gitkeep
-!results/models/.gitkeep
-!reports/README.md
-!logs/.gitkeep
+# Saídas geradas pelos notebooks
+outputs/
+dados_brutos/
+dados_intermediarios/
+dados_finais/
+logs/
 
-# Modelos e binários
+# Arquivos pesados e modelos
+*.parquet
+*.zip
+*.txt
+*.csv
+*.xlsx
 *.pkl
 *.joblib
 *.model
-*.parquet
 *.feather
 
-# Arquivos temporários
+# Temporários
 *.tmp
 *.bak
 ~$*
