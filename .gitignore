@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Ambientes
+.venv/
+venv/
+env/
+.env
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Dados brutos e processados grandes
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/README.md
+
+# Saídas de execução
+results/tables/*
+results/figures/*
+results/models/*
+reports/*.html
+reports/*.pdf
+logs/*
+!results/README.md
+!results/tables/.gitkeep
+!results/figures/.gitkeep
+!results/models/.gitkeep
+!reports/README.md
+!logs/.gitkeep
+
+# Modelos e binários
+*.pkl
+*.joblib
+*.model
+*.parquet
+*.feather
+
+# Arquivos temporários
+*.tmp
+*.bak
+~$*

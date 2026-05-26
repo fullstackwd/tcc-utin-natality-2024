@@ -1,0 +1,21 @@
+name: tcc-utin-rpm-pprom
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - jupyter
+  - notebook
+  - ipython
+  - pandas
+  - numpy
+  - pyarrow
+  - openpyxl
+  - requests
+  - scikit-learn
+  - statsmodels
+  - xgboost
+  - matplotlib
+  - graphviz
+  - pip
+  - pip:
+      - zipfile-deflate64>=0.2.0

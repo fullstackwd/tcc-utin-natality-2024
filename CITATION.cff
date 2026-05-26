@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Se este repositório for útil, cite o TCC associado."
+title: "Estratificação retrospectiva do risco de internação em UTIN em nascimentos: aplicação de Health Analytics à Natality Data 2024, com ênfase em prematuridade e proxy operacional compatível com contexto de RPM/PPROM"
+type: thesis
+authors:
+  - family-names: "Santos"
+    given-names: "Jalvo Alef Oliveira dos"
+  - family-names: "Vilela"
+    given-names: "Vanessa Soares"
+  - family-names: "Ribeiro"
+    given-names: "Julia Beatriz Valentim"
+  - family-names: "Sorgi"
+    given-names: "Vanessa Beatriz Mauricio"
+  - family-names: "Calçada"
+    given-names: "David Paulo Francisco"
+  - family-names: "Oliveira"
+    given-names: "José Paulo da Silva"
+  - family-names: "Santos"
+    given-names: "Lucas Gabriel Gallo dos"
+  - family-names: "Lima"
+    given-names: "Wagner Santos"
+year: 2026
+institution: "Universidade Virtual do Estado de São Paulo (UNIVESP)"
