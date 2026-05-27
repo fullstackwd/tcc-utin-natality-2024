@@ -13,7 +13,7 @@ O projeto organiza um fluxo reprodutível em Python para obtenção, preparo, an
 
 ## Escopo do repositório
 
-Este repositório está focado exclusivamente nos requisitos de funcionamento dos notebooks:
+Este repositório está focado nos requisitos de funcionamento dos notebooks e inclui documentação complementar do TCC na pasta `docs/`:
 
 | Notebook | Função |
 |---|---|
@@ -27,9 +27,16 @@ Este repositório está focado exclusivamente nos requisitos de funcionamento do
 ```text
 .
 ├── README.md
+├── COMANDOS_GIT.md
+├── GITHUB_CONFIGURACOES_RECOMENDADAS.md
+├── LICENSE
+├── RELEASE_NOTES_v1.0.0-tcc.md
 ├── requirements.txt
 ├── environment.yml
 ├── .gitignore
+├── docs/
+│   ├── README.md
+│   └── index_tcc.html
 ├── notebooks/
 │   ├── 01_preparo_reprodutivel_natality_data_2024.ipynb
 │   └── 02_pipeline_analitico_reprodutivel_natality_data_2024.ipynb
@@ -43,6 +50,35 @@ Este repositório está focado exclusivamente nos requisitos de funcionamento do
     └── processed/
         └── .gitkeep
 ```
+
+---
+
+## Documentação complementar
+
+A pasta `docs/` reúne materiais complementares de documentação e apresentação do TCC.
+
+| Arquivo | Função |
+|---|---|
+| `docs/index_tcc.html` | Página HTML complementar de apresentação/documentação do TCC. |
+| `docs/README.md` | Instruções para visualizar corretamente o arquivo `index_tcc.html`. |
+
+Para visualizar o conteúdo do arquivo `docs/index_tcc.html` de forma real, recomenda-se baixar o repositório ou o arquivo HTML e abri-lo localmente em um navegador.
+
+A visualização direta pelo GitHub pode exibir apenas o código-fonte do arquivo, e não necessariamente a página renderizada como foi planejada.
+
+Também é possível abrir a página com servidor local. Após baixar o repositório, execute na pasta principal:
+
+```bash
+python -m http.server 8000
+```
+
+Em seguida, acesse no navegador:
+
+```text
+http://localhost:8000/docs/index_tcc.html
+```
+
+O arquivo `index_tcc.html` é um artefato complementar de comunicação técnica e não substitui a versão oficial do TCC entregue conforme as normas acadêmicas da UNIVESP.
 
 ---
 
