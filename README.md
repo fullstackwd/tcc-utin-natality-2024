@@ -35,7 +35,7 @@ Este repositório está focado nos requisitos de funcionamento dos notebooks e i
 ├── environment.yml
 ├── .gitignore
 ├── docs/
-│   ├── README.md
+│   ├── README_docs.md
 │   └── index_tcc.html
 ├── notebooks/
 │   ├── 01_preparo_reprodutivel_natality_data_2024.ipynb
